@@ -1,0 +1,139 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "poppins", "sans-serif";
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #3e4fad, #32847d);
+}
+
+.todolist {
+  width: 100%;
+  max-width: 540px;
+  background: white;
+  border-radius: 10px;
+  margin: auto 0; /*top-bottom , left-right (Achieve center)*/
+  padding: 40px 30px; /*top-bottom , right-left*/
+}
+
+.todolist h2 {
+  color: #002765;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  text-align: -webkit-center; /*responsive*/
+}
+
+.todolist h2 img {
+  width: 30px;
+  margin-left: 10px;
+}
+
+.searchrow {
+  display: flex;
+  align-items: center;
+  background: #edeef0;
+  border-radius: 30px;
+  margin-bottom: 25px;
+}
+
+.inputfield {
+  flex: 1; /*this will take full width*/
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px;
+  font-weight: 14px;
+  text-align: start;
+  padding-left: 18px;
+}
+
+.searchbtn {
+  border: none;
+  outline: none;
+  padding: 16px 50px; /*top-bottom, left-right*/
+  background: #ff5945;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 40px;
+}
+
+.list-container li {
+  font-size: 18px;
+  padding: 12px 8px 12px 50px; /*top right bottom left*/
+  user-select: none;
+  cursor: pointer;
+  position: relative; /*realative bc of box*/
+}
+
+.list-container li::before {
+  /* pesudo element::before*/
+  content: ""; /*means empty*/
+  position: absolute; /*absolute due to box*/
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background-image: url(images/unchecked.png);
+  background-size: cover;
+  background-position: center;
+  top: 12px;
+  left: 8px;
+}
+
+.checked {
+  text-decoration: line-through;
+  color: #555;
+}
+
+li.checked::before {
+  background-image: url(images/checked.png);
+}
+
+ul li span {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  color: #555;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+ul li span:hover {
+  background: #ffeaea;
+}
+
+@media (max-width: 404px) {
+  .searchrow {
+    flex-direction: column;
+    border-radius: 0;
+    text-align: center;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  .searchbtn {
+    width: 100%;
+    padding: 8px 14px;
+    border-radius: 0;
+  }
+
+  .inputfield {
+    padding: 15px;
+    text-align: center;
+  }
+}
